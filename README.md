@@ -44,5 +44,3 @@ HTML <Form>태그를 사용하던지, ajax에서 비동기를할때 주로 검�
 HTML <Form>태그를 사용하던지, ajax에서 비동기를할때 주로 검색에 사용이 됩니다.
 이렇게 사용되는 이유는, 검색할는 파라미터가 많다는 뜻입니다.
 post는 http통신할때, post body에다가 data를 집어넣고 보낸다는 뜻을 가지고 있기 때문에, @RequestBody로 매개변수로 넣어야합니다.
-=======
->>>>>>> 2374dfccfda05bfa7eb8b4fefc91c4105fbce787
