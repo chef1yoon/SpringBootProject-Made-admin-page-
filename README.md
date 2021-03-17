@@ -30,11 +30,9 @@ Rest 방식의 데이터 자체를 넘겨준다는 뜻입니다.
 그때 메소드를 String값이 아닌 클래스로 해주고, return값도 클래스로 해줍니다.
 요즘에는 JSON형식으로 값을 전달하는것이 표준이 되어있는 상태여서, 기본적으로 JSON형식으로 반환해주는 라이브러리가 저장되어있습니다. 그렇기 떄문에 알아서 JSON형식으로 return 해줍니다.
 
-ex)
 public SearchParam getMultiParameter(SearchParam searchParam){
 System.out.println(searchParam.getAccount());
 System.out.println(searchParam.getEmail());
 System.out.println(searchParam.getPage());
-
         return searchParam;
-    }
+  }
