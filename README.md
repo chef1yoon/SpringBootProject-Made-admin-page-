@@ -30,7 +30,6 @@ Rest 방식의 데이터 자체를 넘겨준다는 뜻입니다.
 이제 더이상 @RequestParam을 사용하지않고, 클래스 호출하고 클래스안에 인스턴스를 각각 사용해줍니다.
 그때 메소드를 String값이 아닌 클래스로 해주고, return값도 클래스로 해줍니다.
 요즘에는 JSON형식으로 값을 전달하는것이 표준이 되어있는 상태여서, 기본적으로 JSON형식으로 반환해주는 라이브러리가 저장되어있습니다. 그렇기 떄문에 알아서 JSON형식으로 return 해줍니다.
-<<<<<<< HEAD
 
 
 ### @RequestMapping(method = RequestMethod.POST, path ="/postMethod")
@@ -44,7 +43,6 @@ HTML <Form>태그를 사용하던지, ajax에서 비동기를할때 주로 검�
 HTML <Form>태그를 사용하던지, ajax에서 비동기를할때 주로 검색에 사용이 됩니다.
 이렇게 사용되는 이유는, 검색할는 파라미터가 많다는 뜻입니다.
 post는 http통신할때, post body에다가 data를 집어넣고 보낸다는 뜻을 가지고 있기 때문에, @RequestBody로 매개변수로 넣어야합니다.
-<<<<<<< HEAD
 
 
 
@@ -53,6 +51,4 @@ lombok을 추가하여 따로 getter setter를 설정하지 않아도 인스턴�
 
 
 ### AllArgsConstructor
-모든 매개변수를 받을수 있는 생성자를 추가했습니다.
-=======
->>>>>>> b4c0bef2a14a8ce2cf508266ecf4fdf971fe411e
+모든 매개변수를 받을수 있는 생성자를 추가했습니다.\
