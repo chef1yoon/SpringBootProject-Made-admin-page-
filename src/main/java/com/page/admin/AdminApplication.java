@@ -1,13 +1,13 @@
-package com.example.study1;
+package com.page.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Study1Application {
+public class AdminApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Study1Application.class, args);
+        SpringApplication.run(AdminApplication.class, args);
     }
 
 }

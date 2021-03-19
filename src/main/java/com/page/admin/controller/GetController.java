@@ -1,7 +1,7 @@
-package com.example.study1.controller;
+package com.page.admin.controller;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-import com.example.study1.controller.model.SearchParam;
+
+import com.page.admin.model.SearchParam;
 import org.springframework.web.bind.annotation.*;
 
 //Rest 방식의 데이터 자체를 넘겨준다라는 뜻입니다.

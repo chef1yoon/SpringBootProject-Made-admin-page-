@@ -1,11 +1,11 @@
-package com.example.study1.controller.model;
+package com.page.admin.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-//@Data
+@Data
 @AllArgsConstructor //모든 매개변수를 받을수있는 생성자가 추가가 됩니다.
 @Getter
 @Setter
