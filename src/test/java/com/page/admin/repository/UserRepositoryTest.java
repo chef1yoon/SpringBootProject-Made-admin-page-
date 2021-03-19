@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 public class UserRepositoryTest extends AdminApplicationTests{
     @Autowired //repository를 이용해서 crud를 테스트할 것이기 때문에 Autowired를 선언해줍니다.
@@ -28,16 +29,47 @@ public class UserRepositoryTest extends AdminApplicationTests{
         System.out.println("newUser : "+newUser);
     }
 
-    public void reate(){
+    @Test
+    public void read(){
+        Optional<User> user = userRepository.findById(2L); //id타입이 2번이다.(뒤에L은 long이다.)
+
+        user.ifPresent(selectUser->{ //selectUser가 user에 들어있으면, 그 값을 꺼내달라는 명령어 입니다.
+            System.out.println("user : "+selectUser);
+            System.out.println("email : "+selectUser.getEmail());
+        });
 
     }
 
 
+    @Test
     public void update(){
+        Optional<User> user = userRepository.findById(4L);
 
+        user.ifPresent(selectUser->{
+            selectUser.setAccount("TestUser04");
+            selectUser.setUpdatedAt(LocalDateTime.now());
+            selectUser.setUpdatedBy("update method()");
+
+            userRepository.save(selectUser);
+        });
     }
 
+    @Test
     public void delete(){
+        Optional<User> user = userRepository.findById(4L);
 
+        user.ifPresent(selectUser->{
+            userRepository.delete(selectUser);
+        });
+
+        //delete는 반환형이 없기때문에 따로 저장하는 설정을 하지 않아도됩니다.
+        //하지만 진짜 삭제가되었는지 확인해봅니다.
+
+        Optional<User> deleteUser = userRepository.findById(4L);
+        if(deleteUser.isPresent()){
+            System.out.println("데이터 존재:"+deleteUser.get());
+        }else{
+            System.out.println("데이터 없음");
+        }
     }
 }
