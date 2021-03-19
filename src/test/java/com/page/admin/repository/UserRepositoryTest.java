@@ -2,8 +2,10 @@ package com.page.admin.repository;
 
 import com.page.admin.AdminApplicationTests;
 import com.page.admin.model.entity.User;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -42,6 +44,7 @@ public class UserRepositoryTest extends AdminApplicationTests{
 
 
     @Test
+    @Transactional
     public void update(){
         Optional<User> user = userRepository.findById(4L);
 
@@ -55,9 +58,12 @@ public class UserRepositoryTest extends AdminApplicationTests{
     }
 
     @Test
+    @Transactional //Assert명령어는 실행은 되지만, DB에서의 작업은 이루어지지 않습니다.
     public void delete(){
-        Optional<User> user = userRepository.findById(4L);
-
+        Optional<User> user = userRepository.findById(3L);
+        
+        Assert.assertTrue(user.isPresent());//반드시 1L이라는 데이터가 존재해야하기 때문에, assertTrue를 해줍니다.
+        
         user.ifPresent(selectUser->{
             userRepository.delete(selectUser);
         });
@@ -65,11 +71,12 @@ public class UserRepositoryTest extends AdminApplicationTests{
         //delete는 반환형이 없기때문에 따로 저장하는 설정을 하지 않아도됩니다.
         //하지만 진짜 삭제가되었는지 확인해봅니다.
 
-        Optional<User> deleteUser = userRepository.findById(4L);
-        if(deleteUser.isPresent()){
-            System.out.println("데이터 존재:"+deleteUser.get());
-        }else{
-            System.out.println("데이터 없음");
-        }
+        Optional<User> deleteUser = userRepository.findById(3L);
+        Assert.assertFalse(deleteUser.isPresent()); //1L이라는 데이터는 존재여부가 false라는 뜻이다.
+//        if(deleteUser.isPresent()){
+//            System.out.println("데이터 존재:"+deleteUser.get());
+//        }else{
+//            System.out.println("데이터 삭제");
+//        }
     }
 }
